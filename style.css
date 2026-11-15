@@ -1,0 +1,467 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Segoe UI',sans-serif;
+    color:white;
+    overflow-x:hidden;
+
+    background:
+    radial-gradient(circle at 20% 20%, #4c1d95 0%, transparent 20%),
+    radial-gradient(circle at 80% 30%, #312e81 0%, transparent 25%),
+    radial-gradient(circle at 50% 80%, #701a75 0%, transparent 20%),
+    radial-gradient(circle at center, #050816 0%, #020617 100%);
+}
+
+/* ================= STARS ================= */
+
+.stars{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:-1;
+
+    background-image:
+    radial-gradient(2px 2px at 20px 30px,#fff,transparent),
+    radial-gradient(2px 2px at 40px 70px,#fff,transparent),
+    radial-gradient(1px 1px at 90px 40px,#fff,transparent),
+    radial-gradient(2px 2px at 150px 120px,#fff,transparent),
+    radial-gradient(1px 1px at 250px 90px,#fff,transparent),
+    radial-gradient(2px 2px at 350px 200px,#fff,transparent),
+    radial-gradient(1px 1px at 500px 100px,#fff,transparent);
+
+    background-size:600px 600px;
+
+    animation:starsMove 80s linear infinite;
+}
+
+@keyframes starsMove{
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(-600px);
+    }
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding:40px;
+}
+
+.hero-content{
+    max-width:1000px;
+}
+
+/* ================= PLANET ================= */
+
+.planet{
+
+    position:relative;
+
+    width:250px;
+    height:250px;
+
+    margin:0 auto 40px;
+
+    border-radius:
+    58% 42% 65% 35% /
+    40% 60% 40% 60%;
+
+    background:
+    radial-gradient(
+        circle at 30% 30%,
+        #f0abfc,
+        #a855f7,
+        #312e81
+    );
+
+    box-shadow:
+        0 0 40px #9333ea,
+        0 0 80px #7c3aed,
+        0 0 120px rgba(139,92,246,.5);
+
+    animation:float 6s ease-in-out infinite;
+}
+
+.planet::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:340px;
+    height:60px;
+
+    border:6px solid rgba(255,255,255,0.25);
+
+    border-radius:50%;
+
+    top:95px;
+    left:-45px;
+
+    transform:rotate(-20deg);
+
+    box-shadow:
+    0 0 30px rgba(255,255,255,0.15);
+}
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-20px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+}
+
+/* ================= TITLE ================= */
+
+.hero h1{
+
+    font-size:8rem;
+
+    font-weight:900;
+
+    letter-spacing:6px;
+
+    background:
+    linear-gradient(
+        45deg,
+        #ffffff,
+        #8be9fd,
+        #c084fc,
+        #ec4899,
+        #ffffff
+    );
+
+    background-size:400%;
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    animation:shine 8s linear infinite;
+
+    filter:drop-shadow(
+        0 0 25px rgba(192,132,252,.5)
+    );
+}
+
+@keyframes shine{
+
+    0%{
+        background-position:0%;
+    }
+
+    100%{
+        background-position:400%;
+    }
+}
+
+/* ================= SUBTITLE ================= */
+
+.hero p{
+
+    margin-top:20px;
+
+    font-size:1.3rem;
+
+    line-height:1.8;
+
+    color:#dbeafe;
+
+    max-width:750px;
+
+    margin-left:auto;
+    margin-right:auto;
+}
+
+/* ================= BUTTON AREA ================= */
+
+.hero-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+    margin-top:40px;
+}
+
+/* ================= NEBULA BUTTON ================= */
+
+.nebula-btn{
+
+    padding:20px 42px;
+
+    border:none;
+
+    color:white;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    background:
+    radial-gradient(
+        circle at top left,
+        #ff4fd8,
+        #8b5cf6,
+        #2563eb
+    );
+
+    border-radius:
+    60% 40% 55% 45% /
+    40% 50% 50% 60%;
+
+    transition:.5s;
+
+    box-shadow:
+    0 0 25px rgba(168,85,247,.6);
+}
+
+.nebula-btn:hover{
+
+    transform:
+    translateY(-8px)
+    scale(1.08);
+
+    box-shadow:
+    0 0 40px #9333ea,
+    0 0 60px #ec4899,
+    0 0 90px #38bdf8;
+}
+
+/* ================= GHOST BUTTON ================= */
+
+.ghost-btn{
+
+    padding:20px 40px;
+
+    border:none;
+
+    color:white;
+
+    cursor:pointer;
+
+    background:
+    rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(15px);
+
+    border-radius:
+    45% 55% 60% 40% /
+    40% 40% 60% 60%;
+
+    border:
+    1px solid rgba(255,255,255,0.2);
+
+    transition:.4s;
+}
+
+.ghost-btn:hover{
+
+    transform:translateY(-8px);
+
+    background:
+    rgba(255,255,255,0.15);
+}
+
+/* ================= FEATURES ================= */
+
+.features{
+
+    padding:80px;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+
+    gap:30px;
+
+    position:relative;
+}
+
+/* Cosmic glow */
+
+.features::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:600px;
+    height:600px;
+
+    left:50%;
+    top:-300px;
+
+    transform:translateX(-50%);
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(168,85,247,.15),
+        transparent
+    );
+
+    pointer-events:none;
+}
+
+/* ================= CARDS ================= */
+
+.card{
+
+    background:
+    rgba(255,255,255,0.05);
+
+    border:
+    1px solid rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(15px);
+
+    padding:35px;
+
+    border-radius:
+    40px 20px 50px 25px;
+
+    transition:.4s;
+}
+
+.card:hover{
+
+    transform:
+    translateY(-15px)
+    rotate(-1deg);
+
+    box-shadow:
+    0 0 35px rgba(168,85,247,.4);
+}
+
+.card h2{
+
+    color:#e879f9;
+
+    margin-bottom:15px;
+}
+
+.card p{
+
+    color:#d1d5db;
+
+    line-height:1.8;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+    .hero h1{
+        font-size:4rem;
+    }
+
+    .planet{
+        width:180px;
+        height:180px;
+    }
+
+    .planet::after{
+        width:250px;
+        left:-35px;
+    }
+
+    .features{
+        padding:30px;
+    }
+
+}
+.search-bar{
+
+    width:500px;
+    max-width:90%;
+
+    padding:18px;
+
+    margin-top:40px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,0.08);
+
+    color:white;
+
+    backdrop-filter:blur(15px);
+
+    font-size:1rem;
+}
+
+.search-bar::placeholder{
+
+    color:#cbd5e1;
+}
+.mission{
+    max-width:900px;
+    margin:auto;
+    padding:80px 40px;
+    text-align:center;
+}
+
+.mission h2{
+    font-size:3rem;
+    margin-bottom:30px;
+    color:#c084fc;
+}
+
+.mission p{
+    margin-bottom:20px;
+    line-height:1.8;
+    color:#d1d5db;
+}
+
+.facts{
+    padding:80px;
+}
+
+.facts h2{
+    text-align:center;
+    margin-bottom:40px;
+    font-size:3rem;
+    color:#c084fc;
+}
